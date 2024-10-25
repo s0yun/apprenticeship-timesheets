@@ -75,6 +75,15 @@ button:hover {
     display: none;
 }
 
+
+
+.licence-info {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
 .entry {
     margin-bottom: 10px;
 }
