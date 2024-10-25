@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet Entry for apprenticeships</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Timesheet Entry Formatter For Apprentices</h1>
+        <form id="timesheetForm">
+            <label for="activity">What was the activity?</label>
+            <input type="text" id="activity" required>
+
+            <label for="learning">What did you learn?</label>
+            <textarea id="learning" required></textarea>
+
+            <label for="mins">How long did you spend on this in minutes?</label>
+            <input type="text" id="mins" required>
+            <label for="relation">How does this relate to your apprenticeship?</label>
+            <a href="https://www.instituteforapprenticeships.org/apprenticeship-standards/" target="_blank"
+                style="color: #4A90E2; text-decoration: none; font-size: 14px; display: inline-block; margin-bottom: 10px;">
+                Stuck for how this could relate?
+            </a><br>
+            <textarea id="relation" placeholder="Describe how this relates to your apprenticeship KSB's"
+                required></textarea>
+
+
+
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="output" id="output">
+            <h2>Your Timesheet Entry</h2>
+            <p class="entry" id="entryContent"></p>
+            <button id="copyButton">Copy to Clipboard</button>
+            <p class="copy-notification" id="copyNotification">Timesheet entry copied to clipboard</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('timesheetForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get user input
+            const activity = document.getElementById('activity').value;
+            const learning = document.getElementById('learning').value;
+            const mins = document.getElementById('mins').value;
+            const relation = document.getElementById('relation').value;
+
+            // Generate output
+            const entryContent = `
+                <strong>What was the activity?</strong> <br>${activity}<br>
+                <strong>What did you learn?</strong> <br>${learning}<br>
+                <strong>How long did you spend on this in minutes?</strong> <br>${mins}<br>
+                <strong>How does this relate to your apprenticeship?</strong> <br>${relation}
+            `;
+
+            // Display output
+            document.getElementById('entryContent').innerHTML = entryContent;
+            document.getElementById('output').style.display = 'block';
+            document.getElementById('copyButton').style.display = 'inline-block'; // Show the copy button
+        });
+
+        // Copy to clipboard functionality
+        document.getElementById('copyButton').addEventListener('click', function () {
+            const outputText = document.getElementById('entryContent').innerText;
+
+            navigator.clipboard.writeText(outputText).then(() => {
+                // Show notification without alert
+                document.getElementById('copyNotification').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('copyNotification').style.display = 'none';
+                }, 2000); // Hide notification after 2 seconds
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

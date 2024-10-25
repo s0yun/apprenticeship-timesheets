@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4A90E2;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #4A90E2;
+    outline: none;
+}
+
+button {
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #357ABD;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Shadow effect on hover */
+}
+
+.output {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    display: none;
+}
+
+.entry {
+    margin-bottom: 10px;
+}
+
+.copy-notification {
+    display: none;
+    color: green;
+    margin-top: 10px;
+}
+
+a {
+    color: #4A90E2;
+    /* Link color */
+    text-decoration: none;
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+    display: block;
+    /* Ensure the link takes its own line */
+    margin-bottom: 10px;
+}
+
+a:hover {
+    color: #357ABD;
+    /* Darker shade on hover */
+}
+
+/* Placeholder styles */
+input::placeholder,
+textarea::placeholder {
+    color: #aaa;
+    /* Lighter color for placeholder text */
+    font-style: italic;
+    /* Italic style for distinction */
+}
